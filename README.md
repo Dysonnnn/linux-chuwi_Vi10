@@ -29,11 +29,13 @@ windows、安卓二合一平板：驰为Vi10
 支持语言支持多国语言
 
 ### 探索过程
+- 20190906
 	之前装了android和win10双系统，突然，某一天，触摸屏用不了，emmm
 android系统好像就用途不大了，win10系统又太耗电了，于是乎打算刷linux系统。
 	网上搜驰为Vi10刷linux的帖子，没有啥收获，但是看到了其他平板安装linux系统的例子，在参考文章中会一一列出。参考网上的文章进行系统的安装，在qq群里询问哪个发行版的linux好用，尝试了debian，lubuntu，ubuntu，系统的安装，三个系统的安装情况:
 	debian：进入安装界面，跟着引导区安装系统，引导安装包安装失败，没有试用系统界面，无法联网；
 	lubuntu：进入安装界面，部分图标不能显示，点击安装图标无反应，放弃；
+- 20190907
 	ubuntu：前前后后装了五六次，不是未知错误就是grub-efi-ia32 引导安装失败，这个错误有解决办法。有试用系统界面，虽然wifi用不了，但是可以使用手机的USB网络共享去给平板电脑提供网络。csdn博客上说grub-efi-ia32 引导装不上的时候可以通过联网，系统自动去下载相关软件进行安装，终于，装好了！
 	将ubuntu-gnome-16.04 LST amd64 装到平板上了！
 	装系统期间发现wifi不能正常使用，于是乎去网上搜索，最后在qq群内的网友的帮助下成功驱动了wifi，在此感谢“考古专家”。
@@ -81,7 +83,7 @@ swap 交换空间 1G
 
 
 ### WiFi
-一开始的时候wifi不能正常使用，扫描不到wifi信号。
+型号：rtl8723bs(dmesg 的时候看到的)
 
 输入命令
 ```bash
@@ -106,6 +108,33 @@ Audio Port: ASoC: no backend DAIs enabled for Audio Port
 ```
 
 尚未解决。
+- 20190908
+[Bug 1611529 - Intel sst audio does not work, no sound](https://bugzilla.redhat.com/show_bug.cgi?id=1611529)
+来自 Hans de Goede 2018-08-02 10:14:43 UTC 的回答
+```
+download these here:
+
+https://fedorapeople.org/~jwrdegoede/alsa-lib-ucm/
+
+Download the alsa-lib-1.1.6... and alsa-ucm-1.1.6... files and in a directory with both these files run:
+
+sudo rpm -Uvh alsa-*.rpm
+
+To install the new version, then do:
+
+killall pulseaudio
+```
+
+
+[ubuntu安装rpm的方法](https://blog.csdn.net/lhf_tiger/article/details/6937217)
+
+安装失败了。不知道错在哪。
+
+
+
+- 最后
+我才放弃了。老是报错 。装了win10。
+
 
 
 ### 参考文章：
